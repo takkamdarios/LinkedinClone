@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  userservice-db:
+    image: userservice-mariadb
+    container_name: mariadb-userservice
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: userservice_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - userservice-db-data:/var/lib/mysql
+    networks:
+      - userservice-network
+
+  userservice-app:
+    image: openjdk:11-jre-slim
+    container_name: userservice-app
+    volumes:
+      - ./path/to/your/jar:/usr/app/userservice-app.jar
+    command: java -jar /usr/app/userservice-app.jar
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://userservice-db:3306/userservice_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8080:8080"
+    depends_on:
+      - userservice-db
+    networks:
+      - userservice-network
+
+networks:
+  userservice-network:
+    driver: bridge
+
+volumes:
+  userservice-db-data:

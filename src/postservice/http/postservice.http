@@ -1,0 +1,38 @@
+### Get all profiles
+GET http://localhost:8078/api/profiles
+Content-Type: application/json
+
+### Get a profile by ID
+GET http://localhost:8078/api/profiles/83
+Content-Type: application/json
+
+### Create a new profile
+POST http://localhost:8078/api/profiles
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "currentJobTitle": "Software Developer",
+  "industry": "Information Technology",
+  "summary": "Experienced software developer...",
+  "headline": "Passionate about coding",
+  "website": "http://mywebsite.com",
+  "openForWork": true
+}
+
+### Update a profile
+PUT http://localhost:8078/api/profiles/106
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "currentJobTitle": "Senior Software Developer",
+  "industry": "Information Technology",
+  "summary": "Expert in software development...",
+  "headline": "Leading software innovations",
+  "website": "http://myupdatedwebsite.com",
+  "openForWork": false
+}
+
+### Delete a profile
+DELETE http://localhost:8078/api/profiles/94

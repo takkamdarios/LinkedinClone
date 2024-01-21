@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postservice-app:
+    build: .
+    ports:
+      - "8078:8078"  # Adjust the host port if needed
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://postservice-db:3306/postservice_db
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=root
+    depends_on:
+      - postservice-db
+
+  postservice-db:
+    image: mariadb
+    ports:
+      - "3307:3306"  # Change the host port if 3306 is already in use
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=postservice_db
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=root
+    volumes:
+      - postservice-db-data:/var/lib/mysql
+
+volumes:
+  postservice-db-data:

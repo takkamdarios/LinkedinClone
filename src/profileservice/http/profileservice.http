@@ -1,0 +1,44 @@
+### Create new profiles
+POST http://localhost:8079/api/profiles
+Content-Type: application/json
+
+
+{
+  "userId": 92,
+  "currentJobTitle": "Chartered accountant at Dyer, English and Acosta",
+  "industry": "IT",
+  "summary": "Chartered accountant",
+  "headline": "Chartered accountant at Dyer, English and Acosta",
+  "website": "http://mysite.com",
+  "openForWork": true
+}
+
+### Get a Profile by ID - Example for ID 81
+GET http://localhost:8079/api/profiles/92
+
+
+### Get All Profiles
+GET http://localhost:8079/api/profiles
+
+
+### Update a Profile - Example for ID 81
+PUT http://localhost:8079/api/profiles/81
+Content-Type: application/json
+
+
+{
+  "userId": 92,
+  "currentJobTitle": "Senior Chartered Accountant",
+  "industry": "IT",
+  "summary": "Updated experience with over 10 years in accounting",
+  "headline": "Senior Chartered Accountant at Dyer, English and Acosta",
+  "website": "http://updatedsite.com",
+  "openForWork": false
+}
+
+
+### Delete a Profile - Example for ID 81
+DELETE http://localhost:8079/api/profiles/81
+Accept: application/json
+
+# Repeat the above DELETE request for each profile that needs to be deleted, with the appropriate ID.

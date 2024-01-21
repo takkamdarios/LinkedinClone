@@ -1,0 +1,38 @@
+### Register a new user
+POST http://localhost:8080/user/register
+Content-Type: application/json
+
+{
+  "username": "lamine Parole",
+  "firstName": "parole",
+  "lastName": "lamine",
+  "password": "lamine",
+  "email": "lamine@example.com",
+  "birthDate": "2020-01-01"
+}
+
+### Login user
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+  "username": "bernard",
+  "password": "bn"
+}
+
+### Get User Profile for user ID 91
+GET http://localhost:8080/user/91
+
+### Update User Profile for user ID 91
+PUT http://localhost:8080/user/91
+Content-Type: application/json
+
+{
+  "firstName": "Bernard",
+  "lastName": "Niset Updated",
+  "email": "bernard.niset@ecole-it.com",
+  "birthDate": "2000-07-05"
+}
+
+### Delete User with ID 91
+DELETE http://localhost:8080/user/91

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  profileservice-app:
+    build: .
+    ports:
+      - "8079:8079"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://profileservice-db:3306/profileservice_db
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=root
+    depends_on:
+      - profileservice-db
+
+  profileservice-db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=profileservice_db
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=root
+    volumes:
+      - profileservice-db-data:/var/lib/mysql
+
+volumes:
+  profileservice-db-data:
