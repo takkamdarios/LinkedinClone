@@ -1,0 +1,15 @@
+
+.connections {
+    background-color: white;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.connections_header > h2 {
+    font-weight: bold;
+}

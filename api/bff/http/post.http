@@ -1,0 +1,60 @@
+###
+#get all posts
+GET http://localhost:8080/api/posts
+
+###
+
+#get post by his id
+GET http://localhost:8080/api/posts/69/with-comments
+
+###
+# create post
+POST http://localhost:8080/api/posts
+Content-Type: application/json
+
+{
+  "profileId": 96,
+  "title": "Post Title",
+  "content": "This is the content of the post."
+}
+
+###
+#edit post
+PUT http://localhost:8080/api/posts/69
+Content-Type: application/json
+
+{
+  "title": "New Title",
+  "content": "This is the new content of the post."
+}
+###
+#delete post
+DELETE http://localhost:8080/api/posts/69
+
+###
+#comment on a post
+POST http://localhost:8080/api/posts/69/comments
+Content-Type: application/json
+
+{
+  "profileId": 92,
+  "content": "This is a new comment on the post."
+}
+
+###
+#edit comment
+PUT http://localhost:8080/api/posts/comments/6
+Content-Type: application/json
+
+{
+  "content": "Updated comment content."
+}
+
+###
+#Delete comment
+DELETE http://localhost:8080/api/posts/comments/21
+
+###
+
+#get all post by profile Id
+GET http://localhost:8080/api/posts/profile/82

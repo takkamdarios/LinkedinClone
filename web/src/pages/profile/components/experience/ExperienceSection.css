@@ -1,0 +1,14 @@
+
+.experiences {
+    background-color: white;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.experiences_header > h2 {
+    font-weight: bold;
+}

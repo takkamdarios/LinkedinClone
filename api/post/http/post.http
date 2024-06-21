@@ -1,0 +1,36 @@
+###
+GET http://localhost:8083/posts
+
+###
+GET http://localhost:8083/posts/profile/82
+
+###
+GET http://localhost:8083/posts/70/with-comments
+
+###
+GET http://localhost:8083/posts/69
+
+
+###
+POST http://localhost:8083/posts
+Content-Type: application/json
+
+{
+  "profileId": 82,
+  "title": "Post Title",
+  "content": "This is the content of the post."
+}
+
+###
+PUT http://localhost:8083/posts/257
+Content-Type: application/json
+
+{
+  "title": "New Title",
+  "content": "This is the new content of the post."
+}
+
+###
+DELETE http://localhost:8083/posts/257
+
+###

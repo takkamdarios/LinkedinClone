@@ -1,0 +1,35 @@
+
+###
+#get user by his id
+GET http://localhost:8080/api/users/96
+
+###
+#get list of user with username containing specific username
+GET http://localhost:8080/api/users/search/user
+
+###
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "username": "test1",
+  "firstName": "test",
+  "lastName": "test",
+  "password": "password",
+  "email": "test1@gmail",
+  "birthDate": "2000-05-21"
+}
+
+###
+#update user details
+PUT http://localhost:8080/api/users/92
+Content-Type: application/json
+
+{
+  "username": "test10",
+  "firstName": "test",
+  "lastName": "test",
+  "password": "password",
+  "email": "test@gmail",
+  "birthDate": "1980-05-21"
+}

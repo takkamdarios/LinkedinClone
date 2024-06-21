@@ -1,0 +1,27 @@
+.footer {
+    position: sticky;
+    top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    height: fit-content;
+}
+
+.footer_copyright {
+    font-size: 12px;
+}
+
+.footer_pages {
+    display: flex;
+    margin: 0 10px;
+    margin-bottom: 10px;
+}
+
+.footer_pages > li{
+    display: flex;
+    margin-right: 10px;
+}
+
+.footer_pages > li:hover{
+    color: #0077b7;
+}

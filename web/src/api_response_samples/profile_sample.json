@@ -1,0 +1,46 @@
+{
+    "id": 96,
+    "user": {
+        "id": 107,
+        "username": "user16",
+        "firstName": "Jonathan",
+        "lastName": "Nelson",
+        "email": "Jonathan.Nelson@ecole-it.com",
+        "birthDate": "1985-06-07",
+        "registrationDate": "2025-04-04T00:00:00",
+        "lastLoginDate": "2023-12-09T16:13:42.000+00:00"
+    },
+    "currentJobTitle": "Firefighter at Ortega LLC",
+    "industry": "IT",
+    "summary": "Firefighter",
+    "headline": "Firefighter at Ortega LLC",
+    "website": "http://mysite.com",
+    "openForWork": 1,
+    "skills": [
+        {
+            "id": 82,
+            "name": "CSS3"
+        }
+    ],
+    "connections": [],
+    "educations": [
+        {
+            "id": 35,
+            "school": "Ecole-IT",
+            "degree": "Master",
+            "filedOfStudy": "IT",
+            "startDate": "1989-09-01",
+            "endDate": "1991-09-01"
+        }
+    ],
+    "experiences": [
+        {
+            "id": 6,
+            "jobTitle": "Dev",
+            "companyName": "Google",
+            "location": "San Fran",
+            "startDate": "2010-10-01",
+            "endDate": "2012-11-01"
+        }
+    ]
+}

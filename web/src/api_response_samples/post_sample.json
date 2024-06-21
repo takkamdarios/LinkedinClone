@@ -1,0 +1,25 @@
+{
+    "id": 64,
+    "profile": {
+        "id": 81,
+        "user": {
+            "id": 92,
+            "username": "user1",
+            "firstName": "Todd",
+            "lastName": "Pearson",
+            "email": "Todd.Pearson@ecole-it.com",
+            "birthDate": "1973-02-21",
+            "registrationDate": "2026-06-22T00:00:00",
+            "lastLoginDate": "2023-12-09T16:13:42.000+00:00"
+        },
+        "currentJobTitle": "Chartered accountant at Dyer, English and Acosta",
+        "industry": "IT",
+        "summary": "Chartered accountant",
+        "headline": "Chartered accountant at Dyer, English and Acosta",
+        "website": "http://mysite.com",
+        "openForWork": 1
+    },
+    "title": "Century enough wait current many personal get.",
+    "content": "Drop year meet indicate painting. Again why maybe myself popular matter total process. Bit option know behavior table three.",
+    "creationDate": "2023-12-09T16:13:42.000+00:00"
+}

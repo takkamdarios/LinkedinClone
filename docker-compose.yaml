@@ -1,0 +1,112 @@
+version: '3.1'
+services:
+  db-user:
+    container_name: linkedin-db-user
+    image: mariadb:latest
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: linkedin_user
+    volumes:
+      - data-mariadb-user:/var/lib/mysql
+    networks:
+      - spring-cloud-network
+
+  db-profile:
+    container_name: linkedin-db-profile
+    image: mariadb:latest
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: linkedin_profile
+    volumes:
+     - data-mariadb-profile:/var/lib/mysql   
+    networks:
+      - spring-cloud-network
+  
+  db-post:
+    container_name: linkedin-db-post
+    image: mariadb:latest
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: linkedin_post
+    volumes:
+      - data-mariadb-post:/var/lib/mysql
+    networks:
+      - spring-cloud-network
+
+  api-user:
+    container_name: linkedin-api-user
+    build:
+      context: api/user
+      dockerfile: Dockerfile
+    networks:
+      - spring-cloud-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db-user:3306/linkedin_user
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  api-profile:
+    container_name: linkedin-api-profile
+    build:
+      context: api/profile
+      dockerfile: Dockerfile
+    networks:
+      - spring-cloud-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db-profile:3306/linkedin_profile
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      LINKEDIN_USER_HOST: api-user
+    #ports:
+     # - "8082:8082"
+  
+  api-post:
+    container_name: linkedin-api-post
+    build:
+      context: api/post
+      dockerfile: Dockerfile
+    networks:
+      - spring-cloud-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db-post:3306/linkedin_post
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      LINKEDIN_PROFILE_HOST: api-profile
+
+  api-bff:
+    container_name: linkedin-api-bff
+    build:
+      context: api/bff
+      dockerfile: Dockerfile
+    networks:
+      - spring-cloud-network
+    environment:
+      LINKEDIN_USER_HOST: api-user
+      LINKEDIN_PROFILE_HOST: api-profile
+      LINKEDIN_POST_HOST: api-post
+    ports:
+      - "8080:8080"
+  
+  web:
+    container_name: linkedin-web
+    build:
+      context: web
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3002:3002"
+    networks:
+      - spring-cloud-network
+    depends_on:
+      - api-bff
+
+networks:
+  spring-cloud-network:
+    driver: bridge
+volumes:
+  data-mariadb-user:
+  data-mariadb-profile:
+  data-mariadb-post:

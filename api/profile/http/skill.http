@@ -1,0 +1,25 @@
+
+###
+GET http://localhost:8082/skills
+
+###
+GET http://localhost:8082/profiles/96/skills
+
+###
+POST http://localhost:8082/profiles/92/skills
+Content-Type: application/json
+
+{
+  "name": "test"
+}
+
+###
+PUT http://localhost:8082/profiles/96/skills/80
+Content-Type: application/json
+
+{
+  "name": "tes2"
+}
+
+###
+DELETE http://localhost:8082/profiles/96/skills/80

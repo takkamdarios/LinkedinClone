@@ -1,0 +1,31 @@
+###
+#get all users
+GET http://localhost:8081/users
+
+###
+#get user by id
+GET http://localhost:8081/users/92
+
+###
+#get user by username
+GET http://localhost:8081/users/username/user1
+
+###
+#search user with specific name or lastname
+GET http://localhost:8081/users/search/user10
+
+###
+#create user
+POST http://localhost:8081/users/register
+Content-Type: application/json
+
+{
+  "username": "harold",
+  "firstName": "Harold",
+  "lastName": "Raj",
+  "password": "password",
+  "email": "harold.raj@ecole-it.com",
+  "birthDate": "2000-05-20"
+}
+
+###

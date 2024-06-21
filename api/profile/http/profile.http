@@ -1,0 +1,35 @@
+###
+GET http://localhost:8082/profiles/user/
+
+###
+GET http://localhost:8082/profiles/96
+
+###
+GET http://localhost:8082/profiles/user/96
+
+###
+PUT http://localhost:8082/profiles/user/96
+Content-Type: application/json
+
+{
+  "currentJobTitle": "Chartered management accountant at Conrad, Ford and Howard",
+  "industry": "IT",
+  "summary": "Chartered management accountant",
+  "headline": "Chartered management accountant at Conrad, Ford and Howard",
+  "website": "http://mysite.com",
+  "openForWork": 1
+}
+
+###
+POST http://localhost:8082/profiles
+Content-Type: application/json
+
+{
+  "userId": 92,
+  "currentJobTitle": "Chartered management accountant at Conrad, Ford and Howard",
+  "industry": "IT",
+  "summary": "Chartered management accountant",
+  "headline": "Chartered management accountant at Conrad, Ford and Howard",
+  "website": "http://mysite.com",
+  "openForWork": 0
+}

@@ -1,0 +1,33 @@
+
+###
+GET http://localhost:8082/educations
+
+###
+GET http://localhost:8082/profiles/111/educations
+
+###
+POST http://localhost:8082/profiles/80/educations
+Content-Type: application/json
+
+{
+  "school": "test",
+  "degree": "test",
+  "filedOfStudy": "test",
+  "startDate": "2000-05-20",
+  "endDate": "2000-05-20"
+}
+
+###
+PUT http://localhost:8082/profiles/111/educations/36
+Content-Type: application/json
+
+{
+  "school": "done2",
+  "degree": "done2",
+  "filedOfStudy": "done",
+  "startDate": "2010-05-20",
+  "endDate": "2010-05-20"
+}
+
+###
+DELETE http://localhost:8082/profiles/111/educations/36

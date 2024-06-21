@@ -1,0 +1,30 @@
+
+.experience-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+}
+
+.experience-header {
+    display: flex;
+    align-items: center;
+}
+
+.experience-header img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.experience-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.experience-header p {
+    margin: 5px 0;
+    color: #666;
+}

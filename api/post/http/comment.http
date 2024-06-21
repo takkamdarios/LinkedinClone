@@ -1,0 +1,26 @@
+###
+GET http://localhost:8083/comments
+
+###
+GET http://localhost:8083/comments
+
+###
+POST http://localhost:8083/comments/200
+Content-Type: application/json
+
+{
+  "profileId": 92,
+  "content": "This is a comment on the post."
+}
+
+###
+PUT http://localhost:8083/comments/20
+Content-Type: application/json
+
+{
+  "content": "Updated comment content."
+}
+
+
+###
+DELETE http://localhost:8083/comments/23

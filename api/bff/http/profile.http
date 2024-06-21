@@ -1,0 +1,117 @@
+
+###
+#get profile by profileId
+GET http://localhost:8080/api/profiles/96
+
+###
+#get profile by his userid
+GET http://localhost:8080/api/profiles/user/96
+
+
+###
+#edit profile for the user
+PUT http://localhost:8080/api/profiles/94
+Content-Type: application/json
+
+{
+  "currentJobTitle": "test",
+  "industry": "IT",
+  "summary": "test",
+  "headline": "test",
+  "website": "http://mysite.com",
+  "openForWork": 1
+}
+
+###
+#create profile for the user
+POST http://localhost:8080/api/profiles
+Content-Type: application/json
+
+{
+  "userId": 112,
+  "currentJobTitle": "test1",
+  "industry": "IT",
+  "summary": "test1",
+  "headline": "test1",
+  "website": "http://mysite.com",
+  "openForWork": 0
+}
+
+###
+POST http://localhost:8080/profiles/96/experiences
+Content-Type: application/json
+
+{
+  "jobTitle": "test",
+  "companyName": "test",
+  "location": "test",
+  "startDate": "2000-05-20",
+  "endDate": "2000-05-20"
+}
+
+###
+PUT http://localhost:8080/profiles/96/experiences/10
+Content-Type: application/json
+
+{
+  "jobTitle": "done2",
+  "companyName": "done2",
+  "location": "done",
+  "startDate": "2010-05-20",
+  "endDate": "2010-05-20"
+}
+
+###
+DELETE http://localhost:8080/profiles/96/experiences/10
+
+###
+POST http://localhost:8082/profiles/96/skills
+Content-Type: application/json
+
+{
+  "name": "test"
+}
+
+###
+PUT http://localhost:8082/profiles/96/skills/80
+Content-Type: application/json
+
+{
+  "name": "tes2"
+}
+
+###
+DELETE http://localhost:8082/profiles/96/skills/80
+
+###
+POST http://localhost:8082/profiles/96/educations
+Content-Type: application/json
+
+{
+  "school": "test",
+  "degree": "test",
+  "filedOfStudy": "test",
+  "startDate": "2000-05-20",
+  "endDate": "2000-05-20"
+}
+
+###
+PUT http://localhost:8082/profiles/111/educations/36
+Content-Type: application/json
+
+{
+  "school": "done2",
+  "degree": "done2",
+  "filedOfStudy": "done",
+  "startDate": "2010-05-20",
+  "endDate": "2010-05-20"
+}
+
+###
+DELETE http://localhost:8082/profiles/111/educations/36
+
+###
+POST http://localhost:8082/profiles/92/connections?otherUserId=96
+
+###
+DELETE http://localhost:8082/profiles/96/connections?otherUserId=95

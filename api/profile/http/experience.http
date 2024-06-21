@@ -1,0 +1,33 @@
+
+###
+GET http://localhost:8082/experiences
+
+###
+GET http://localhost:8082/profiles/96/experiences
+
+###
+POST http://localhost:8082/profiles/96/experiences
+Content-Type: application/json
+
+{
+  "jobTitle": "test",
+  "companyName": "test",
+  "location": "test",
+  "startDate": "2000-05-20",
+  "endDate": "2000-05-20"
+}
+
+###
+PUT http://localhost:8082/profiles/96/experiences/10
+Content-Type: application/json
+
+{
+  "jobTitle": "done2",
+  "companyName": "done2",
+  "location": "done",
+  "startDate": "2010-05-20",
+  "endDate": "2010-05-20"
+}
+
+###
+DELETE http://localhost:8082/profiles/96/experiences/10

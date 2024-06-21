@@ -1,0 +1,182 @@
+openapi: 3.0.0
+info:
+  title: Linkedin Profile API
+  description: Linkedin Profile API allowing profile data manipulation
+  version: 0.1.0
+servers:
+  - url: http://localhost:8080/api
+    description: localhost
+paths:
+  /profiles:
+    post:
+      summary: Create profile for new user
+      responses:
+        '200':
+          description: Profile details edited successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+
+  /profiles/{userId}/skills:
+    get:
+      summary: Get profile skills
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Skills details fetched successfully
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    description: skill's id
+                  name:
+                    type: string
+                    description: skill's name
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+
+  /profiles/{userId}:
+    get:
+      summary: Get profile details by userId
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the user to fetch
+      responses:
+        '200':
+          description: Profile details fetched successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+
+    put:
+      summary: Edit profile details by userId
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Profile details edited successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    Profile:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of the profile
+        userId:
+          type: integer
+          description: The id of the user
+        CurrentJobTitle:
+          type: string
+          description: The current job title of the user
+        industry:
+          type: string
+          description: The industry
+        summary:
+          type: string
+          description: The summary
+        headlines:
+          type: string
+          description: Headlines for the profile
+        website:
+          type: string
+          description: His website url
+        openForWork:
+          type: integer
+          description: If the user is open or not for work (0 or 1)
+        skills:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Id of the skill
+              name:
+                type: string
+                description: name of the skill
+        connections:
+          type: array
+          description: list of user having connection with the actual user
+        educations:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Id of the skill
+              profileId:
+                type: integer
+                description: id of the profile
+              school:
+                type: string
+              degree:
+                type: string
+              fieldOfStudy:
+                type: string
+              startDate:
+                type: string
+                format: date
+              endDate:
+                type: string
+                format: date
+        experiences:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Id of the skill
+              profileId:
+                type: integer
+                description: id of the profile
+              jobTitle:
+                type: string
+              companyName:
+                type: string
+              location:
+                type: string
+              startDate:
+                type: string
+                format: date
+              endDate:
+                type: string
+                format: date
